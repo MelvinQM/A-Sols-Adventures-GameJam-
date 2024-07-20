@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Rigidbody2D rig;
     [SerializeField] private SpriteRenderer spriteRenderer;
-
     private Vector2 moveInput;
 
     void FixedUpdate()
