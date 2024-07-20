@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.LogFormat("Hit Player: {0}!!!", collision.gameObject.name);
+            Destroy(gameObject);
+
         }
     }
 }
