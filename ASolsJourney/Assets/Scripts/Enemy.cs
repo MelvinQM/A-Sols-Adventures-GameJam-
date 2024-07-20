@@ -25,7 +25,6 @@ public class Enemy : MonoBehaviour
         {
             Debug.LogFormat("Hit Player: {0}!!!", collision.gameObject.name);
             Destroy(gameObject);
-
         }
     }
 }
