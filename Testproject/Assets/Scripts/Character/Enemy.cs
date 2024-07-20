@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy : Character
+public abstract class Enemy : Character
 {
     public enum State
     {
@@ -11,23 +11,29 @@ public class Enemy : Character
         Chase,
         Attack
     }
-    private State curState;
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float chaseDistance;
-    [SerializeField] private float attackDistance;
-    private GameObject target;
-    private float lastAttackTime;
-    private float targetDistance;
+    protected State curState;
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float chaseDistance;
+    // [SerializeField] private float attackDistance;
 
-    void Start ()
+    protected GameObject target;
+    protected float lastAttackTime;
+    protected float targetDistance;
+
+    [Header("Components")]
+    [SerializeField] protected SpriteRenderer spriteRenderer;
+    protected virtual void Start ()
     {
         target = FindObjectOfType<Player>().gameObject;
     }
     
-    void Update ()
+    protected virtual void Update ()
     {   
         // Calculate the distance from us to the target.
         targetDistance = Vector2.Distance(transform.position, target.transform.position);
+
+        // Flip the sprite to face the target.
+        spriteRenderer.flipX = GetTargetDirection().x > 0;
 
         switch(curState)
         {
@@ -59,10 +65,6 @@ public class Enemy : Character
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
     }
 
-    bool InAttackRange()
-    {
-        return targetDistance < attackDistance;
-    }
 
     // Called every frame while in the "Attack" state.
     void AttackUpdate ()
@@ -78,15 +80,35 @@ public class Enemy : Character
             AttackTarget();
         }
     }
-
-    bool CanAttack ()
+    protected virtual bool InAttackRange()
     {
         return false;
     }
 
-    void AttackTarget ()
+    protected virtual bool CanAttack ()
+    {
+        return false;
+    }
+
+    protected virtual void AttackTarget ()
     {
         
     }
+
+    public override void Die ()
+    {
+        DropItems();
+        Destroy(gameObject);
+    }
+    void DropItems ()
+    {
+
+    }
+
+    Vector2 GetTargetDirection ()
+    {
+        return (target.transform.position - transform.position).normalized;
+    }
+
 
 }
