@@ -28,7 +28,6 @@ public class BulletScript : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D collision)
     {
-        Debug.Log("ENTERED");
         IDamagable damagable = collision.gameObject.GetComponent<IDamagable>();
         if(damagable != null)
         {
