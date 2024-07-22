@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.0042830673}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7092077218457460218}
@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.29, y: -2.04428, z: -0.019445125}
-  m_LocalScale: {x: 4.54, y: 4.54, z: 4.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4581011861861946042}
@@ -225,9 +225,12 @@ MonoBehaviour:
   MaxHp: 10
   audioSource: {fileID: 370080959187279425}
   hitSFX: {fileID: 8300000, guid: 3ea5307b29f5e1a41b3d59f3df1adccb, type: 3}
-  moveSpeed: 3
-  chaseDistance: 10
+  moveSpeed: 1
+  chaseDistance: 4
   spriteRenderer: {fileID: 1747704753534975827}
+  damage: 5
+  attackRange: 1
+  attackRate: 1
 --- !u!82 &370080959187279425
 AudioSource:
   m_ObjectHideFlags: 0

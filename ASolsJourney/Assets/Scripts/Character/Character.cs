@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour, IDamagable
 {   
     public enum Team
     {
