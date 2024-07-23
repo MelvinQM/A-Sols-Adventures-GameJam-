@@ -791,12 +791,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1838101914}
+  - component: {fileID: 1838101921}
   - component: {fileID: 1838101916}
   - component: {fileID: 1838101917}
   - component: {fileID: 1838101919}
   - component: {fileID: 1838101918}
-  - component: {fileID: 1838101921}
   - component: {fileID: 1838101920}
+  - component: {fileID: 1838101922}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -836,6 +837,8 @@ MonoBehaviour:
   moveSpeed: 3
   rig: {fileID: 1838101917}
   spriteRenderer: {fileID: 1812758741}
+  moveInput: {x: 0, y: 0}
+  isBeingMoved: 0
 --- !u!50 &1838101917
 Rigidbody2D:
   serializedVersion: 4
@@ -1074,6 +1077,20 @@ MonoBehaviour:
   MaxHp: 100
   audioSource: {fileID: 1838101920}
   hitSFX: {fileID: 8300000, guid: 3ea5307b29f5e1a41b3d59f3df1adccb, type: 3}
+--- !u!114 &1838101922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838101913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fceda51d5ec1914689640926435f5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 9a3919e3cb252064f9a30e8affdb5371, type: 2}
+  key: 304
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -10,12 +10,16 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Rigidbody2D rig;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    private Vector2 moveInput;
+    [HideInInspector] public Vector2 moveInput;
+    [HideInInspector] public bool isBeingMoved = false;
+
 
     void FixedUpdate()
     {
-        Vector2 velocity = moveInput * moveSpeed;
-        rig.velocity = velocity;
+        if(!isBeingMoved){
+            Vector2 velocity = moveInput * moveSpeed;
+            rig.velocity = velocity;
+        }
     }
 
     public void OnMoveInput(InputAction.CallbackContext context)
@@ -23,15 +27,18 @@ public class PlayerController : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private IEnumerator Dash(float dashVelocity, float dashTime) {
+        isBeingMoved = true;
 
+        Vector2 dashDirection = moveInput.normalized;
+        rig.velocity = dashDirection * dashVelocity;
+        yield return new WaitForSeconds(dashTime);
+
+        isBeingMoved = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartDash(float dashVelocity, float dashTime)
     {
-
+        StartCoroutine(Dash(dashVelocity, dashTime));
     }
 }
