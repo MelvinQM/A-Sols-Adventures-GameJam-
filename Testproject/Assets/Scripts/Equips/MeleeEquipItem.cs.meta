@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c26827fa1c70fe745a4e46bdb1e32d3b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - item: {fileID: 11400000, guid: b473bb71916d9094fbf3681975a217a9, type: 2}
+  - anim: {instanceID: 0}
+  - swingSFX: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
