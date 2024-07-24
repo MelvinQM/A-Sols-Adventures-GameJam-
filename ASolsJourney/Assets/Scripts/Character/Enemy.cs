@@ -27,6 +27,7 @@ public abstract class Enemy : Character
     
     protected virtual void Update ()
     {   
+        if(target == null) return;
         // Calculate the distance from us to the target.
         targetDistance = Vector2.Distance(transform.position, target.transform.position);
 
