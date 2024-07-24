@@ -1094,10 +1094,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 1
-  activeTime: 0.5
+  activeTime: 0.2
   isUnlocked: 1
-  key: 32
-  dashVelocity: 50
+  key: 304
+  dashVelocity: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

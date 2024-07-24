@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class Ability : MonoBehaviour
 {
     public float cooldownTime;
-    float cooldownTimer;
+    private float cooldownTimer;
     public float activeTime;
-    float activeTimer;
+    private float activeTimer;
     public bool isUnlocked;
     public KeyCode key;
 
