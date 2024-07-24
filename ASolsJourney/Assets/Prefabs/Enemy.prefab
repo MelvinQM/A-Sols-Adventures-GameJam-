@@ -179,6 +179,7 @@ MonoBehaviour:
   damage: 5
   attackRange: 1
   attackRate: 1
+  dropItem: {fileID: 8132920643729052163, guid: cf863f4ba6ab25065bf835aa33986e9f, type: 3}
 --- !u!82 &370080959187279425
 AudioSource:
   m_ObjectHideFlags: 0

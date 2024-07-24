@@ -796,6 +796,7 @@ GameObject:
   - component: {fileID: 1838101919}
   - component: {fileID: 1838101918}
   - component: {fileID: 1838101921}
+  - component: {fileID: 1838101922}
   - component: {fileID: 1838101920}
   m_Layer: 0
   m_Name: Player
@@ -1074,6 +1075,18 @@ MonoBehaviour:
   MaxHp: 100
   audioSource: {fileID: 1838101920}
   hitSFX: {fileID: 8300000, guid: 3ea5307b29f5e1a41b3d59f3df1adccb, type: 3}
+--- !u!114 &1838101922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838101913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abeab9ce20be206db6624d297b170d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
