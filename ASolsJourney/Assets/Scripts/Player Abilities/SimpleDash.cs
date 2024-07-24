@@ -25,8 +25,17 @@ public class SimpleDash : Ability
 
         if (_controller != null && _rb != null)
         {
-            _controller.StartDash(dashVelocity, activeTime);
+            StartCoroutine(Dash(dashVelocity, activeTime));
         }
     }
+    
+    private IEnumerator Dash(float dashVelocity, float dashTime) {
+        _controller.isBeingMoved = true;
 
+        Vector2 dashDirection = _controller.moveInput.normalized;
+        _rb.velocity = dashDirection * dashVelocity;
+        yield return new WaitForSeconds(dashTime);
+
+        _controller.isBeingMoved = false;
+    }
 }
