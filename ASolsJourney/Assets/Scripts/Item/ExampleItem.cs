@@ -1,23 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ExampleItem : MonoBehaviour, ICollectible
 {
+    public static event Action OnExampleItemPickedUp;
     public void Collect()
     {
         Debug.Log("Coin Collected");
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        OnExampleItemPickedUp?.Invoke();
+        Destroy(gameObject);
     }
 }
