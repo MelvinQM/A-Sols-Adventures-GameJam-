@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Rigidbody2D rig;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Collider2D playerCollider;
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public bool isBeingMoved = false;
-
 
     void FixedUpdate()
     {
@@ -25,5 +25,19 @@ public class PlayerController : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void PlayerDeath()
+    {
+        spriteRenderer.enabled = false;
+        playerCollider.enabled = false;
+        rig.simulated =false;
+    }
+
+    public void RevivePlayer()
+    {
+        spriteRenderer.enabled = true;
+        playerCollider.enabled = true;
+        rig.simulated = true;
     }
 }
