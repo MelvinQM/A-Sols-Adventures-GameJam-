@@ -791,11 +791,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1838101914}
+  - component: {fileID: 1838101921}
   - component: {fileID: 1838101916}
+  - component: {fileID: 1838101923}
   - component: {fileID: 1838101917}
   - component: {fileID: 1838101919}
   - component: {fileID: 1838101918}
-  - component: {fileID: 1838101921}
   - component: {fileID: 1838101920}
   m_Layer: 0
   m_Name: Player
@@ -836,6 +837,8 @@ MonoBehaviour:
   moveSpeed: 3
   rig: {fileID: 1838101917}
   spriteRenderer: {fileID: 1812758741}
+  moveInput: {x: 0, y: 0}
+  isBeingMoved: 0
 --- !u!50 &1838101917
 Rigidbody2D:
   serializedVersion: 4
@@ -920,6 +923,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2714cdda-5686-43ba-83ee-819054f77cba
     m_ActionName: Main/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6b5137cf-37ff-49ce-b785-ae6adb4fc04d
+    m_ActionName: Main/Dash[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Main
@@ -1074,6 +1081,23 @@ MonoBehaviour:
   MaxHp: 100
   audioSource: {fileID: 1838101920}
   hitSFX: {fileID: 8300000, guid: 3ea5307b29f5e1a41b3d59f3df1adccb, type: 3}
+--- !u!114 &1838101923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838101913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbbb76ed77173a45bfd2685bdeccf0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 1
+  activeTime: 0.2
+  isUnlocked: 1
+  key: 304
+  dashVelocity: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
