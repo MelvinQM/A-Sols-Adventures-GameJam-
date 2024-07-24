@@ -794,6 +794,7 @@ GameObject:
   - component: {fileID: 1838101921}
   - component: {fileID: 1838101916}
   - component: {fileID: 1838101923}
+  - component: {fileID: 1838101924}
   - component: {fileID: 1838101917}
   - component: {fileID: 1838101919}
   - component: {fileID: 1838101918}
@@ -1098,6 +1099,18 @@ MonoBehaviour:
   isUnlocked: 1
   key: 304
   dashVelocity: 20
+--- !u!114 &1838101924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838101913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abeab9ce20be206db6624d297b170d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
