@@ -6,7 +6,6 @@ using UnityEngine;
 public class SimpleDash : Ability
 {
     public float dashVelocity;
-    public float dashTime;
 
     // Cache storage for Components
     private PlayerController _controller;
@@ -26,7 +25,8 @@ public class SimpleDash : Ability
 
         if (_controller != null && _rb != null)
         {
-            _controller.StartDash(dashVelocity, dashTime);
+            _controller.StartDash(dashVelocity, activeTime);
         }
     }
+
 }

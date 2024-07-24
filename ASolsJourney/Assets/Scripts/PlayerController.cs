@@ -27,6 +27,10 @@ public class PlayerController : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
     }
 
+    // NOTE: Not a fan of this being in the player controller but it had to be done to 
+    // make sure the applying of dash velocity doesn't get overridden by the normal movement behaviour
+    // (had to be done in MonoBehaviour script which abilities are not)
+    
     private IEnumerator Dash(float dashVelocity, float dashTime) {
         isBeingMoved = true;
 
