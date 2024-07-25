@@ -1,4 +1,7 @@
-public interface ICollectible
+using UnityEngine;
+
+public abstract class ICollectible : MonoBehaviour
 {
-    public void Collect();
+    public abstract void Collect();
+    public abstract void OnTriggerEnter2D(Collider2D collision);
 }
