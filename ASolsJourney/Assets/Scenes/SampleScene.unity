@@ -478,8 +478,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -323.79803, y: 233.3565}
-  m_SizeDelta: {x: -692.7722, y: -496.5267}
+  m_AnchoredPosition: {x: -816.7265, y: 495.4823}
+  m_SizeDelta: {x: -1678.629, y: -1020.7783}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &136296108
 MonoBehaviour:
@@ -8892,11 +8892,11 @@ GameObject:
   - component: {fileID: 1838101921}
   - component: {fileID: 1838101916}
   - component: {fileID: 1838101923}
-  - component: {fileID: 1838101924}
   - component: {fileID: 1838101917}
   - component: {fileID: 1838101919}
   - component: {fileID: 1838101918}
   - component: {fileID: 1838101920}
+  - component: {fileID: 1838101924}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
