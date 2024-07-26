@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HealingOrb : ICollectible
 {
+    [SerializeField] int healAmount;
 
     public override void Collect()
     {
@@ -13,9 +14,11 @@ public class HealingOrb : ICollectible
 
     public override void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.TryGetComponent<Character>(out var damagable))
+        if (collider.gameObject.TryGetComponent<Player>(out var player))
         {
             Debug.Log("Is Character");
+            player.Heal(healAmount);
+            Destroy(gameObject);
         }
     }
 }
