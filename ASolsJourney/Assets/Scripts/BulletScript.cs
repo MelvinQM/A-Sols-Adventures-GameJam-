@@ -29,7 +29,7 @@ public class BulletScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         IDamagable damagable = collision.gameObject.GetComponent<IDamagable>();
-        if (damagable != null)
+        if (damagable != null && damagable.GetTeam() == Character.Team.Enemy)
         {
             damagable.TakeDamage(damage);
 
