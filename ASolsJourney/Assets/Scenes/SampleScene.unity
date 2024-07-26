@@ -7168,7 +7168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a9acb179027aa2c9b80245280908c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 7929461298731322539, guid: d9f0d16451584dc79a792f878959959f, type: 3}
   spawnInterval: 3.5
   spawnRadiusMin: 5
   tilemap: {fileID: 554623151}

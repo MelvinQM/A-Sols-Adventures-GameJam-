@@ -9,7 +9,7 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
 
     [SerializeField] private float spawnInterval = 3.5f;
-    [SerializeField] private float spawnRadiusMin = 5f;
+    [SerializeField] private float spawnRadiusMin = 10f;
     [SerializeField] private Tilemap tilemap;
     // [SerializeField] private float spawnRadiusMax = 15f;
 
@@ -19,9 +19,9 @@ public class GridSpawner : MonoBehaviour
 
     void Start()
     {
-        GetValidPositions();
         StartCoroutine(spawnEnemy(spawnInterval, enemyPrefab));
         spawnCenter = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        GetFieldPositions();
     }
 
     // Update is called once per frame
@@ -34,11 +34,16 @@ public class GridSpawner : MonoBehaviour
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
     {
         yield return new WaitForSeconds(interval);
-        GetValidPositions();
+        Vector3 spawnLocation;
+        do
+        {
+            spawnLocation = validSpawnPositions[Random.Range(0, validSpawnPositions.Count)];
+        } while (DistToPlayer(spawnLocation) < spawnRadiusMin);
+        GameObject newEnemy = Instantiate(enemy, spawnLocation, Quaternion.identity);
         StartCoroutine(spawnEnemy(interval, enemy));
     }
 
-    private void GetValidPositions()
+    private void GetFieldPositions()
     {
         validSpawnPositions.Clear();
         BoundsInt boundsInt = tilemap.cellBounds;
@@ -60,12 +65,18 @@ public class GridSpawner : MonoBehaviour
                         (y + 0.5f) * tilesize.y
                         );
                     Vector3 place = start + offset;
-
                     validSpawnPositions.Add(place);
-
-                    Debug.DrawLine(Vector3.zero, place, Color.blue, 20f, false);
                 }
             }
         }
+    }
+
+    private float DistToPlayer(Vector3 pos)
+    {
+        // pos + x = spawn 
+        // x = spawn - pos
+        Vector3 posToSpawn = spawnCenter.position - pos;
+
+        return posToSpawn.magnitude;
     }
 }
