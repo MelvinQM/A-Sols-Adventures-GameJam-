@@ -405,7 +405,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.21698111, g: 0.055516887, b: 0.027634388, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -7026,7 +7026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -334.95258, y: 225.59534}
+  m_AnchoredPosition: {x: -371.2, y: 228.5}
   m_SizeDelta: {x: 352.0137, y: 39.8359}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931799832
@@ -8802,7 +8802,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1838101914}
@@ -8847,8 +8847,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -64584943
   m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1034769843, guid: 7e9e43a172d08924ea05256b73c2e7a1, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 1644253691, guid: 095af3cea8e52274dbc86429cefe4cca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8869,7 +8869,7 @@ Animator:
   m_GameObject: {fileID: 1812758739}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5f611d0d4ffbb20488ae7ebdfa4e0079, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4ddc3d4ee3cc49e44b6e6f1ac7c3302a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
