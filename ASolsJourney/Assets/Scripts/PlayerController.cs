@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         spriteRenderer.enabled = false;
         playerCollider.enabled = false;
-        rig.simulated =false;
+        rig.simulated = false;
     }
 
     public void RevivePlayer()
@@ -39,5 +39,19 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.enabled = true;
         playerCollider.enabled = true;
         rig.simulated = true;
+    }
+
+    private IEnumerator Dash(float dashVelocity, float dashTime) {
+        isBeingMoved = true;
+
+        Vector2 dashDirection = moveInput.normalized;
+        rig.velocity = dashDirection * dashVelocity;
+        yield return new WaitForSeconds(dashTime);
+
+        isBeingMoved = false;
+    }
+    public void StartDash(float dashVelocity, float activeTime) 
+    {
+        StartCoroutine(Dash(dashVelocity, activeTime));
     }
 }
