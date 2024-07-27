@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:ASolsJourney/Assets/Sprites/Unused.meta
+guid: 7442da92ec6bc3a388d8228348112cb8
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+========
 guid: 05c86fc1946d9454ebe20b97bf324e45
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 24100000
+>>>>>>>> main:ASolsJourney/Assets/Audio/MainMixer.mixer.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
