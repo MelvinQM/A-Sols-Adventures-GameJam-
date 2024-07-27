@@ -15,6 +15,6 @@ MonoBehaviour:
   cooldownTime: 0.5
   activeTime: 0.2
   key: 32
-  icon: {fileID: 0}
+  icon: {fileID: -1084344863, guid: 29be1c2d3e2776542a66e7252fdc6297, type: 3}
   state: 0
   dashVelocity: 10
