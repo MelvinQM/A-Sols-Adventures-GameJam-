@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class SimpleDash : Ability
 {
     public float dashVelocity;
@@ -24,17 +25,8 @@ public class SimpleDash : Ability
 
         if (_controller != null && _rb != null)
         {
-            StartCoroutine(Dash(dashVelocity, activeTime));
+            // Dash function is called from player controller to avoid Coroutine issues
+            _controller.StartDash(dashVelocity, activeTime);
         }
-    }
-    
-    private IEnumerator Dash(float dashVelocity, float dashTime) {
-        _controller.isBeingMoved = true;
-
-        Vector2 dashDirection = _controller.moveInput.normalized;
-        _rb.velocity = dashDirection * dashVelocity;
-        yield return new WaitForSeconds(dashTime);
-
-        _controller.isBeingMoved = false;
     }
 }
