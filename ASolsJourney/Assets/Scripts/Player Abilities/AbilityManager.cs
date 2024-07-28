@@ -12,15 +12,14 @@ public class AbilityStatus
 }
 public class AbilityManager : MonoBehaviour
 {
+    [SerializeField] private List<AbilityStatus> unlockedAbilities;
+    [SerializeField] private AbilityBar ui;
+
+    // public UnityEvent OnAbilitiesUpdated = new UnityEvent();
+    // public UnityEvent OnAbilitiesUsed = new UnityEvent();
 
     private float activeTimer;
     private float cooldownTimer;
-
-    [SerializeField] private List<AbilityStatus> unlockedAbilities;
-
-    // Event to notify when abilities are updated
-    public UnityEvent OnAbilitiesUpdated = new UnityEvent();
-
     public List<AbilityStatus> GetAbilities()
     {
         return unlockedAbilities;
@@ -51,7 +50,9 @@ public class AbilityManager : MonoBehaviour
                 break;
                 case Ability.AbilityState.Cooldown: 
                     if(cooldownTimer > 0) {
+                        //OnAbilitiesUpdated.Invoke();
                         cooldownTimer -= Time.deltaTime;
+                        ui.StartCooldown(status.ability.abilityName, status.ability.cooldownTime); //Is this ok being here performance wise?????
                     }
                     else {
                         status.ability.state = Ability.AbilityState.Ready;
@@ -74,15 +75,14 @@ public class AbilityManager : MonoBehaviour
             }
         }
 
-        // Update UI
-        OnAbilitiesUpdated.Invoke();
+        ui.UpdateUI();
     }
 
     public void DeleteAbility(Ability ability)
     {
         unlockedAbilities.RemoveAll(a => a.ability == ability);
 
-        OnAbilitiesUpdated.Invoke();
+        ui.UpdateUI();
     }
 
     public bool IsAbilityUnlocked(Ability ability)
