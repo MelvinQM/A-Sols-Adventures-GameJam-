@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class AbilityStatus
@@ -16,7 +17,9 @@ public class AbilityManager : MonoBehaviour
     private float cooldownTimer;
 
     [SerializeField] private List<AbilityStatus> unlockedAbilities;
-    [SerializeField] private AbilityBar ui;
+
+    // Event to notify when abilities are updated
+    public UnityEvent OnAbilitiesUpdated = new UnityEvent();
 
     public List<AbilityStatus> GetAbilities()
     {
@@ -72,12 +75,14 @@ public class AbilityManager : MonoBehaviour
         }
 
         // Update UI
-        ui.UpdateUI();
+        OnAbilitiesUpdated.Invoke();
     }
 
     public void DeleteAbility(Ability ability)
     {
         unlockedAbilities.RemoveAll(a => a.ability == ability);
+
+        OnAbilitiesUpdated.Invoke();
     }
 
     public bool IsAbilityUnlocked(Ability ability)
