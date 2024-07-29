@@ -6,9 +6,15 @@ public class Player : Character
 {
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private PlayerController playerController;
+    private GameController gc;
     [SerializeField] private CameraUtilities cameraUtils;
     void Start()
     {
+        gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        if (gc == null)
+        {
+            Debug.LogError("No GameController found");
+        }
         healthBar.SetMaxHealth(MaxHp);
         healthBar.SetHealth(CurHp);
 
@@ -28,7 +34,9 @@ public class Player : Character
     public override void Die()
     {
         Debug.Log("Player died");
+        lifeState = LifeState.Death;
         playerController.PlayerDeath();
+        gc.GameOver();
         //base.Die(); Deleting player = bad idea
     }
 

@@ -12,6 +12,13 @@ public abstract class Character : MonoBehaviour, IDamagable
         Enemy
     }
     [SerializeField] protected Team team;
+    public enum LifeState
+    {
+        Alive,
+        Death
+    }
+
+    protected LifeState lifeState = LifeState.Alive;
 
     public string DisplayName;
     public int CurHp;
@@ -24,6 +31,7 @@ public abstract class Character : MonoBehaviour, IDamagable
     public event UnityAction onTakeDamage;
     public event UnityAction onHeal;
     public event Action<Character> OnDeath;
+
 
     // Virtual function to edit in children of this class
     public virtual void Die()
@@ -38,6 +46,7 @@ public abstract class Character : MonoBehaviour, IDamagable
 
     public virtual void TakeDamage(int damageToTake)
     {
+        if (lifeState == LifeState.Death) return;
         CurHp -= damageToTake;
         audioSource.PlayOneShot(hitSFX);
 

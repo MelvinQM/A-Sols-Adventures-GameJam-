@@ -11,6 +11,7 @@ public class ExampleEnemy : Enemy
     [SerializeField] private GameObject dropItem;
     [SerializeField] private Transform sprite;
     [SerializeField] private Transform spawnSprite;
+    [SerializeField] private Transform shadowSprite;
 
     protected override void AttackTarget()
     {
@@ -31,9 +32,17 @@ public class ExampleEnemy : Enemy
 
     public override void Die()
     {
-        base.Die();
-        Debug.Log("ExampleEnemy died");
+        lifeState = LifeState.Death;
         Instantiate(dropItem, transform.position, Quaternion.identity);
+        curState = State.Spawn;
+        sprite.gameObject.SetActive(false);
+
+        StartCoroutine(PlayDeathAnimation(() =>
+        {
+            base.Die();
+        }));
+
+        Debug.Log("ExampleEnemy died");
     }
 
     public override void Spawn()
@@ -46,15 +55,12 @@ public class ExampleEnemy : Enemy
 
     private IEnumerator PlaySpawnAnimation(Action onComplete)
     {
-        Debug.Log("ANIMATION");
-
         // Turn off sprite of enemy
-        GameObject sprite = transform.Find("Sprite").gameObject;
-        sprite.SetActive(false);
+        sprite.gameObject.SetActive(false);
+        shadowSprite.gameObject.SetActive(false);
 
         // Turn on spawn sprite
-        GameObject spawnSprite = transform.Find("SpawnSprite").gameObject;
-        spawnSprite.SetActive(true);
+        spawnSprite.gameObject.SetActive(true);
 
         // Play animation
         Animator ani = spawnSprite.GetComponent<Animator>();
@@ -64,10 +70,28 @@ public class ExampleEnemy : Enemy
         yield return new WaitForSeconds(ani.GetCurrentAnimatorStateInfo(0).length);
 
         // Switch back to original sprite
-        sprite.SetActive(true);
-        spawnSprite.SetActive(false);
+        sprite.gameObject.SetActive(true);
+        spawnSprite.gameObject.SetActive(false);
+        shadowSprite.gameObject.SetActive(true);
 
         // Call the callback
+        onComplete?.Invoke();
+    }
+
+    private IEnumerator PlayDeathAnimation(Action onComplete)
+    {
+        Debug.Log("ANIMATION");
+        shadowSprite.gameObject.SetActive(false);
+        ParticleSystem particle = transform.GetComponent<ParticleSystem>();
+        particle.Play();
+
+        while (particle.isPlaying)
+        {
+            yield return null;
+        }
+
+        Debug.Log("AAA");
+
         onComplete?.Invoke();
     }
 }

@@ -14167,10 +14167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4137016262445453664, guid: 304bb5258b871594ca896c1a9d065af4, type: 3}
-  bulletTransform: {fileID: 31077032}
+  shootingPointTransform: {fileID: 1812758740}
   canFire: 1
   timeBetweenFiring: 0.15
   AttacksContainer: {fileID: 1636709308}
+  offsetDistance: 1
 --- !u!1 &1524400506
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!isBeingMoved){
+        if (!isBeingMoved)
+        {
             Vector2 velocity = moveInput * moveSpeed;
             rig.velocity = velocity;
         }
@@ -42,9 +43,11 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.enabled = true;
         playerCollider.enabled = true;
         rig.simulated = true;
+        rig.position = new Vector2(0f, 0f);
     }
 
-    private IEnumerator Dash(float dashVelocity, float dashTime) {
+    private IEnumerator Dash(float dashVelocity, float dashTime)
+    {
         isBeingMoved = true;
         
         Vector2 dashDirection = moveInput.normalized;
@@ -53,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
         isBeingMoved = false;
     }
-    public void StartDash(float dashVelocity, float activeTime) 
+    public void StartDash(float dashVelocity, float activeTime)
     {
         // If player is stationary dont dash
         if(moveInput == Vector2.zero) return;
