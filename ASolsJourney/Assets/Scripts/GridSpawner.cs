@@ -40,6 +40,11 @@ public class GridSpawner : MonoBehaviour
             spawnLocation = validSpawnPositions[Random.Range(0, validSpawnPositions.Count)];
         } while (DistToPlayer(spawnLocation) < spawnRadiusMin);
         GameObject newEnemy = Instantiate(enemy, spawnLocation, Quaternion.identity);
+
+        Enemy reference = newEnemy.GetComponent<Enemy>();
+        if(reference == null) Debug.Log("NO SCRIPT BITCH");
+        reference.Spawn();
+        
         StartCoroutine(spawnEnemy(interval, enemy));
     }
 
