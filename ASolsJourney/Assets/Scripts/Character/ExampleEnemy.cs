@@ -57,7 +57,6 @@ public class ExampleEnemy : Enemy
     public override void Spawn()
     {
         StartCoroutine(PlaySpawnAnimation());
-        base.Spawn();
     }
 
     private IEnumerator PlaySpawnAnimation()
@@ -80,6 +79,7 @@ public class ExampleEnemy : Enemy
         yield return new WaitForSeconds(ani.GetCurrentAnimatorStateInfo(0).length);
 
         // Switch back to original sprite
+        curState = State.Idle;
         sprite.SetActive(true);
         spawnSprite.SetActive(false);
     }

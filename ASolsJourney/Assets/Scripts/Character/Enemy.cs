@@ -113,6 +113,6 @@ public abstract class Enemy : Character
 
     public override void Spawn()
     {   
-        ChangeState(State.Idle);
+       
     }
 }
