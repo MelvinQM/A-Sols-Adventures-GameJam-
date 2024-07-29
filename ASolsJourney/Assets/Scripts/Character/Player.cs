@@ -10,11 +10,15 @@ public class Player : Character
     [SerializeField] private CameraUtilities cameraUtils;
     void Start()
     {
-        gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        GameObject gameControllerObj = GameObject.FindGameObjectWithTag("GameController");
         if (gc == null)
         {
             Debug.LogError("No GameController found");
+        } else
+        {
+            gc = gameControllerObj.GetComponent<GameController>();
         }
+        
         healthBar.SetMaxHealth(MaxHp);
         healthBar.SetHealth(CurHp);
 
@@ -36,7 +40,12 @@ public class Player : Character
         Debug.Log("Player died");
         lifeState = LifeState.Death;
         playerController.PlayerDeath();
-        gc.GameOver();
+
+        if (gc != null)
+        {
+            gc.GameOver();
+        }
+
         //base.Die(); Deleting player = bad idea
     }
 

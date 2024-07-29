@@ -24,6 +24,9 @@ public abstract class Enemy : Character
     protected virtual void Start ()
     {
         target = FindObjectOfType<Player>().gameObject;
+
+        // Testiong
+        Spawn();
     }
     
     protected virtual void Update ()

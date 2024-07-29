@@ -49,10 +49,7 @@ public class WaveManger : MonoBehaviour
     private void OnEnemyKilled(Character entity)
     {
         entity.OnDeath -= OnEnemyKilled;
-
-
         currentEnemyCount--;
-        Debug.Log("Enemy Killed " + currentEnemyCount);
         if (currentEnemyCount == 0) { EndWave(); }
     }
 
