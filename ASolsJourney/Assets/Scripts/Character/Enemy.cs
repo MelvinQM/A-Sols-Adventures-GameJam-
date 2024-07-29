@@ -44,6 +44,12 @@ public abstract class Enemy : Character
         }
     }
 
+    public override void TakeDamage(int damageToTake)
+    {
+        if(curState == State.Spawn) return;
+        base.TakeDamage(damageToTake);
+    }
+
     // Changes our current state.
     void ChangeState (State newState)
     {

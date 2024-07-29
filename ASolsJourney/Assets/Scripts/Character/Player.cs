@@ -28,6 +28,7 @@ public class Player : Character
     public override void Die()
     {
         Debug.Log("Player died");
+        lifeState = LifeState.Death;
         playerController.PlayerDeath();
         //base.Die(); Deleting player = bad idea
     }

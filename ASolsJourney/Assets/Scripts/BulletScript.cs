@@ -5,22 +5,19 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    private Vector3 mousePos;
-    private Camera mainCam;
-    private Rigidbody2D rb;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private int damage;
     [SerializeField] private int lifetime;
 
     void Start()
     {
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        rb = GetComponent<Rigidbody2D>();
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePos - transform.position;
-        Vector3 rotation = transform.position - mousePos;
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * bulletSpeed;
-        float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+    }
+
+    public void Boom(float dirX, float dirY, float rot)
+    {
+        GetComponent<Rigidbody2D>().velocity = new Vector2(dirX, dirY).normalized * bulletSpeed;
+        
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
 
         Destroy(gameObject, lifetime);

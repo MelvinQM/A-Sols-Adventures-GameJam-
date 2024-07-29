@@ -11,6 +11,7 @@ public class ExampleEnemy : Enemy
     [SerializeField] private GameObject dropItem;
     [SerializeField] private Transform sprite;
     [SerializeField] private Transform spawnSprite;
+    [SerializeField] private Transform shadowSprite;
 
     protected override void AttackTarget()
     {
@@ -31,6 +32,7 @@ public class ExampleEnemy : Enemy
 
     public override void Die()
     {
+        lifeState = LifeState.Death;
         Instantiate(dropItem, transform.position, Quaternion.identity);
         curState = State.Spawn;
         sprite.gameObject.SetActive(false);
@@ -55,6 +57,7 @@ public class ExampleEnemy : Enemy
     {
         // Turn off sprite of enemy
         sprite.gameObject.SetActive(false);
+        shadowSprite.gameObject.SetActive(false);
 
         // Turn on spawn sprite
         spawnSprite.gameObject.SetActive(true);
@@ -69,6 +72,7 @@ public class ExampleEnemy : Enemy
         // Switch back to original sprite
         sprite.gameObject.SetActive(true);
         spawnSprite.gameObject.SetActive(false);
+        shadowSprite.gameObject.SetActive(true);
 
         // Call the callback
         onComplete?.Invoke();
@@ -77,6 +81,7 @@ public class ExampleEnemy : Enemy
     private IEnumerator PlayDeathAnimation(Action onComplete)
     {
         Debug.Log("ANIMATION");
+        shadowSprite.gameObject.SetActive(false);
         ParticleSystem particle = transform.GetComponent<ParticleSystem>();
         particle.Play();
 

@@ -7,12 +7,14 @@ public class Shooting : MonoBehaviour
     private Camera mainCam;
     private Vector3 mousePos;
     [SerializeField] private GameObject bullet;
-    [SerializeField] private Transform bulletTransform;
+    [SerializeField] private Transform shootingPointTransform;
+    
     public bool canFire;
     private float timer;
 
     [SerializeField] private float timeBetweenFiring;
     [SerializeField] private Transform AttacksContainer;
+    public float offsetDistance = 1.0f;
 
     void Start()
     {
@@ -38,13 +40,19 @@ public class Shooting : MonoBehaviour
             }
         }
     }
-    public void Shoot() 
+    public void Shoot()
     {
         // Reset the timer
         timer = timeBetweenFiring;
 
+        Vector3 direction = mousePos - transform.position;
+        Vector3 rotation = transform.position - mousePos;
+
         // Create new bullet
         GameObject projectile = Instantiate(bullet, AttacksContainer);
-        projectile.transform.position = bulletTransform.position;
+        projectile.transform.position = shootingPointTransform.position;
+        float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        projectile.GetComponent<BulletScript>().Boom(direction.x, direction.y, rot);
+        
     }
 }

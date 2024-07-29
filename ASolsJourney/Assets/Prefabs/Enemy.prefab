@@ -122,7 +122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4581011861861946042
 Transform:
   m_ObjectHideFlags: 0
@@ -292,6 +292,7 @@ MonoBehaviour:
   dropItem: {fileID: 5811515818036128859, guid: 501b65139dd6a6ac7900a79c249ea67e, type: 3}
   sprite: {fileID: 4581011861861946042}
   spawnSprite: {fileID: 4945072597611386418}
+  shadowSprite: {fileID: 8950346572848465013}
 --- !u!82 &370080959187279425
 AudioSource:
   m_ObjectHideFlags: 0
@@ -377,8 +378,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
+      time: 0.4417591
+      value: 0.97735214
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5286,7 +5287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8950346572848465013
 Transform:
   m_ObjectHideFlags: 0
