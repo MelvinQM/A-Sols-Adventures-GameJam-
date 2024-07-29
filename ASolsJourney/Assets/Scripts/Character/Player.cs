@@ -6,6 +6,7 @@ public class Player : Character
 {
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private CameraUtilities cameraUtils;
     void Start()
     {
         healthBar.SetMaxHealth(MaxHp);
@@ -29,5 +30,13 @@ public class Player : Character
         Debug.Log("Player died");
         playerController.PlayerDeath();
         //base.Die(); Deleting player = bad idea
+    }
+
+    public override void TakeDamage(int damageToTake)
+    {
+        base.TakeDamage(damageToTake);
+
+        // Shake camera when player is hit
+        cameraUtils.ShakeCamera();
     }
 }
