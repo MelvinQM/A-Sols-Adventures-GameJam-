@@ -9,12 +9,8 @@ public class AbilityBar : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private Sprite defaultSprite;
     
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        // Subscribe to the event
         // manager.OnAbilitiesUpdated.AddListener(UpdateUI);
         UpdateUI();
     }
@@ -37,7 +33,10 @@ public class AbilityBar : MonoBehaviour
         foreach(AbilityStatus status in statuses)
         {
             GameObject instance = Instantiate(prefab, transform);
-            Image image = instance.GetComponentInChildren<Image>();
+            Transform iconTransform = instance.transform.Find("Icon");
+            Image image = iconTransform.GetComponentInChildren<Image>();
+
+            instance.name = status.ability.abilityName;
 
             // Check which abilities are unlocked
             if(status.isUnlocked) {   
@@ -50,25 +49,42 @@ public class AbilityBar : MonoBehaviour
 
     }
 
-    // IEnumerator MoveSliderOverTime()
-    // {
-    //     float elapsedTime = 0f;
-    //     float startValue = slider.minValue;
-    //     float endValue = slider.maxValue;
+    public void StartCooldown(string abilityName, float cooldown)
+    {
+        // Look for the correct ability ui prefab
+        Transform dashTransform = transform.Find(abilityName);
+        if(dashTransform == null) {
+            Debug.Log("No Dash component found");
+            return;
+        }
 
-    //     while (elapsedTime < duration)
-    //     {
-    //         // Calculate the value based on the elapsed time
-    //         slider.value = Mathf.Lerp(startValue, endValue, elapsedTime / duration);
-            
-    //         // Increment the elapsed time
-    //         elapsedTime += Time.deltaTime;
+        // Trigger cooldown animation using slider 
+        Slider slider = dashTransform.gameObject.GetComponent<Slider>();
+        if(slider == null) {
+            Debug.Log("No slider found");
+            return;
+        }
 
-    //         // Wait until the next frame
-    //         yield return null;
-    //     }
+        StartCoroutine(MoveSliderOverTime(cooldown, slider));
+    }
 
-    //     // Ensure the slider reaches the exact end value at the end of the duration
-    //     slider.value = endValue;
-    // }
+    IEnumerator MoveSliderOverTime(float time, Slider slider)
+    {
+        float elapsedTime = 0f;
+        float startValue = slider.maxValue;
+        float endValue = slider.minValue;
+
+        while (elapsedTime < time)
+        {
+            // Calculate the value based on the elapsed time
+            slider.value = Mathf.Lerp(startValue, endValue, elapsedTime / time);
+    
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        // Ensure the slider reaches the exact end value
+        slider.value = endValue;
+    }
 }

@@ -9,6 +9,9 @@ public class ExampleEnemy : Enemy
     [SerializeField] private float attackRange;
     [SerializeField] private float attackRate;
     [SerializeField] private GameObject dropItem;
+    [SerializeField] private Transform sprite;
+    [SerializeField] private Transform spawnSprite;
+    [SerializeField] private Transform shadowSprite;
 
     protected override void AttackTarget()
     {
@@ -29,18 +32,66 @@ public class ExampleEnemy : Enemy
 
     public override void Die()
     {
-        base.Die();
-        Debug.Log("ExampleEnemy died");
+        lifeState = LifeState.Death;
         Instantiate(dropItem, transform.position, Quaternion.identity);
+        curState = State.Spawn;
+        sprite.gameObject.SetActive(false);
+
+        StartCoroutine(PlayDeathAnimation(() =>
+        {
+            base.Die();
+        }));
+
+        Debug.Log("ExampleEnemy died");
     }
 
-    //NOTE: Probably remove the oncollision death mechanic later but leaving it in for now
-    // void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if (collision.gameObject.tag == "Player")
-    //     {
-    //         Debug.LogFormat("Hit Player: {0}!!!", collision.gameObject.name);
-    //         Die();
-    //     }
-    // }
+    public override void Spawn()
+    {
+        StartCoroutine(PlaySpawnAnimation(() =>
+        {
+            base.Spawn();
+        }));
+    }
+
+    private IEnumerator PlaySpawnAnimation(Action onComplete)
+    {
+        // Turn off sprite of enemy
+        sprite.gameObject.SetActive(false);
+        shadowSprite.gameObject.SetActive(false);
+
+        // Turn on spawn sprite
+        spawnSprite.gameObject.SetActive(true);
+
+        // Play animation
+        Animator ani = spawnSprite.GetComponent<Animator>();
+        ani.Play("SpawningAnimation");
+
+        // Wait for the animation to complete
+        yield return new WaitForSeconds(ani.GetCurrentAnimatorStateInfo(0).length);
+
+        // Switch back to original sprite
+        sprite.gameObject.SetActive(true);
+        spawnSprite.gameObject.SetActive(false);
+        shadowSprite.gameObject.SetActive(true);
+
+        // Call the callback
+        onComplete?.Invoke();
+    }
+
+    private IEnumerator PlayDeathAnimation(Action onComplete)
+    {
+        Debug.Log("ANIMATION");
+        shadowSprite.gameObject.SetActive(false);
+        ParticleSystem particle = transform.GetComponent<ParticleSystem>();
+        particle.Play();
+
+        while (particle.isPlaying)
+        {
+            yield return null;
+        }
+
+        Debug.Log("AAA");
+
+        onComplete?.Invoke();
+    }
 }

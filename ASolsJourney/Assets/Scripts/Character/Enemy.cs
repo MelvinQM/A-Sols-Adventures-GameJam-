@@ -5,11 +5,12 @@ public abstract class Enemy : Character
 {
     public enum State
     {
+        Spawn,
         Idle,
         Chase,
         Attack
     }
-    protected State curState;
+    protected State curState = State.Spawn;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float chaseDistance;
     // [SerializeField] private float attackDistance;
@@ -36,10 +37,17 @@ public abstract class Enemy : Character
 
         switch(curState)
         {
+            case State.Spawn: break;
             case State.Idle: IdleUpdate(); break;
             case State.Chase: ChaseUpdate(); break;
             case State.Attack: AttackUpdate(); break;
         }
+    }
+
+    public override void TakeDamage(int damageToTake)
+    {
+        if(curState == State.Spawn) return;
+        base.TakeDamage(damageToTake);
     }
 
     // Changes our current state.
@@ -109,5 +117,8 @@ public abstract class Enemy : Character
         return (target.transform.position - transform.position).normalized;
     }
 
-
+    public override void Spawn()
+    {   
+        ChangeState(State.Idle);
+    }
 }

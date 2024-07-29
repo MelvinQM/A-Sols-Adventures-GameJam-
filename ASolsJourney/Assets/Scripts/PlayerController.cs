@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rig;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Collider2D playerCollider;
+    [SerializeField] private ParticleSystem dust;
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public bool isBeingMoved = false;
+    public bool isDashing = false;
+    public bool isWalking = false;
 
     void FixedUpdate()
     {
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Dash(float dashVelocity, float dashTime)
     {
         isBeingMoved = true;
-
+        
         Vector2 dashDirection = moveInput.normalized;
         rig.velocity = dashDirection * dashVelocity;
         yield return new WaitForSeconds(dashTime);
@@ -55,6 +58,12 @@ public class PlayerController : MonoBehaviour
     }
     public void StartDash(float dashVelocity, float activeTime)
     {
+        // If player is stationary dont dash
+        if(moveInput == Vector2.zero) return;
+        
+        Debug.Log("Dash");
+        dust.Play();
         StartCoroutine(Dash(dashVelocity, activeTime));
     }
+
 }

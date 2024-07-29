@@ -7,10 +7,14 @@ public class Shooting : MonoBehaviour
     private Camera mainCam;
     private Vector3 mousePos;
     [SerializeField] private GameObject bullet;
-    [SerializeField] private Transform bulletTransform;
+    [SerializeField] private Transform shootingPointTransform;
+    
     public bool canFire;
     private float timer;
+
     [SerializeField] private float timeBetweenFiring;
+    [SerializeField] private Transform AttacksContainer;
+    public float offsetDistance = 1.0f;
 
     void Start()
     {
@@ -20,29 +24,35 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
         Vector3 rotation = mousePos - transform.position;
-
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
-        if(!canFire) 
+        // Update timer
+        if (timer > 0) { timer -= Time.deltaTime; }
+
+        if (Input.GetMouseButton(0))
         {
-            timer += Time.deltaTime;
-            if(timer > timeBetweenFiring) 
+            // If the countdown is 0, then the player can fire
+            if (timer <= 0)
             {
-                canFire = true;
-                timer = 0;
+                Shoot();
             }
         }
     }
-    public void Shoot() 
+    public void Shoot()
     {
-        if(canFire)
-        {
-            canFire = false;
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-        }
+        // Reset the timer
+        timer = timeBetweenFiring;
+
+        Vector3 direction = mousePos - transform.position;
+        Vector3 rotation = transform.position - mousePos;
+
+        // Create new bullet
+        GameObject projectile = Instantiate(bullet, AttacksContainer);
+        projectile.transform.position = shootingPointTransform.position;
+        float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        projectile.GetComponent<BulletScript>().Boom(direction.x, direction.y, rot);
+        
     }
 }
