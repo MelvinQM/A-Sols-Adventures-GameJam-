@@ -7602,6 +7602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 2133124617}
+  gridSpawner: {fileID: 720474066}
 --- !u!4 &1006598080
 Transform:
   m_ObjectHideFlags: 0

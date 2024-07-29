@@ -16,9 +16,12 @@ public class GridSpawner : MonoBehaviour
     private Transform spawnCenter;
 
     private List<Vector3> validSpawnPositions = new();
+    GameController gc;
 
-    void Start()
+    public void Start()
     {
+        gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
         StartCoroutine(spawnEnemy(spawnInterval, enemyPrefab));
         spawnCenter = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         GetFieldPositions();
@@ -33,14 +36,19 @@ public class GridSpawner : MonoBehaviour
 
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
     {
+
         yield return new WaitForSeconds(interval);
         Vector3 spawnLocation;
         do
         {
             spawnLocation = validSpawnPositions[Random.Range(0, validSpawnPositions.Count)];
         } while (DistToPlayer(spawnLocation) < spawnRadiusMin);
-        GameObject newEnemy = Instantiate(enemy, spawnLocation, Quaternion.identity);
+        if (!gc.IsGameOver())
+        {
+            GameObject newEnemy = Instantiate(enemy, spawnLocation, Quaternion.identity);
+        }
         StartCoroutine(spawnEnemy(interval, enemy));
+
     }
 
     private void GetFieldPositions()
