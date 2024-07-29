@@ -50,4 +50,9 @@ public abstract class Character : MonoBehaviour, IDamagable
         if (CurHp > MaxHp) CurHp = MaxHp;
         onHeal?.Invoke();
     }
+
+    public virtual void Spawn()
+    {
+        
+    }
 }
