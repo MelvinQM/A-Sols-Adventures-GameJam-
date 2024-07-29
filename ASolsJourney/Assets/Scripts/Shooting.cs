@@ -11,8 +11,8 @@ public class Shooting : MonoBehaviour
     public bool canFire;
     private float timer;
 
-    
     [SerializeField] private float timeBetweenFiring;
+    [SerializeField] private Transform AttacksContainer;
 
     void Start()
     {
@@ -44,6 +44,7 @@ public class Shooting : MonoBehaviour
         timer = timeBetweenFiring;
 
         // Create new bullet
-        Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(bullet, AttacksContainer);
+        projectile.transform.position = bulletTransform.position;
     }
 }
