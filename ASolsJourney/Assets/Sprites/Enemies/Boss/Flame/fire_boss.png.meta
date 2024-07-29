@@ -1,0 +1,642 @@
+fileFormatVersion: 2
+guid: 5ffcd31848a31934f9f5114df1b22022
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fire_blob_idle_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 295
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4971e2d87f19841acbc2778072e553
+      internalID: -445923558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_idle_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 295
+        width: 19
+        height: 22
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4fe8f6566938d42ae4be8531501332
+      internalID: 225705296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_idle_2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 295
+        width: 19
+        height: 20
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b1f599ac9f2f649bde909f03e3ddbd
+      internalID: -1043201762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_idle_3
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 295
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.3809524, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da964a952ccca584bb6ad94b29fd5c48
+      internalID: 976634166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_idle_4
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 295
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7786919d58c55e349a84206609ba46b8
+      internalID: -611185021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_idle_5
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 295
+        width: 19
+        height: 21
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1d589a9b20826498b43a3c1322f50c
+      internalID: -312305892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_idle_6
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 295
+        width: 19
+        height: 23
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7a9b9f7b431a24bbeec19f17c31b5e
+      internalID: -911029749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_idle_7
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 295
+        width: 19
+        height: 22
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdc0a6a88158f6647b44844866581920
+      internalID: -1607317487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_walk_0
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 295
+        width: 32
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bbce51bce973b49b69febf9a5ef8f1
+      internalID: -443486501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_walk_1
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 295
+        width: 32
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b5f2c086ee4273448670873a71e95d2
+      internalID: 1167836214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_walk_2
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 295
+        width: 32
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8769f2167e3dbb240b826f7ef5806158
+      internalID: 296661048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_walk_3
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 295
+        width: 32
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67f13d925fd963246ac73c49bed4981a
+      internalID: -2065312002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_walk_4
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 295
+        width: 32
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2877056f13d1c4d8909937d7e1908c
+      internalID: -1566173890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 227
+        width: 21
+        height: 21
+      alignment: 9
+      pivot: {x: 0.3809524, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c66b3a21becfe41aca7cf64a70e6aa
+      internalID: 1776112107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 227
+        width: 19
+        height: 20
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4e1fe0a995d574282846ffcbfe93c7
+      internalID: 1564533107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_10
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 227
+        width: 44
+        height: 59
+      alignment: 9
+      pivot: {x: 0.4659091, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e5b99851ac1d140b6270f3918160ea
+      internalID: 810752792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_9
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 227
+        width: 44
+        height: 62
+      alignment: 9
+      pivot: {x: 0.4659091, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1b37cfbb3972f541beff670318b94e0
+      internalID: 589679233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_8
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 227
+        width: 44
+        height: 58
+      alignment: 9
+      pivot: {x: 0.4659091, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76adc2cb8489b246b16651d65383d41
+      internalID: -1760833152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_7
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 227
+        width: 44
+        height: 51
+      alignment: 9
+      pivot: {x: 0.4659091, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b703a3d882a384089a287953b1d563
+      internalID: 1551517686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_6
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 227
+        width: 44
+        height: 47
+      alignment: 9
+      pivot: {x: 0.4659091, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f25191030e0efb4499484c9103e40cd
+      internalID: -345707381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_5
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 227
+        width: 26
+        height: 27
+      alignment: 9
+      pivot: {x: 0.48076922, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf7fdb050eb949498eae031c7f41f69
+      internalID: -1659167528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_4
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 227
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.475, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 287f4e1fa865ee049b9627e87ebeaed4
+      internalID: -175199694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 227
+        width: 19
+        height: 27
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a21458050580b74c999fcd84d58707f
+      internalID: -1810055160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_explode_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 227
+        width: 19
+        height: 24
+      alignment: 9
+      pivot: {x: 0.42105263, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d480dfc288e320469b869bf0d3ca0b2
+      internalID: 234021817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      fire_blob_explode_0: 1776112107
+      fire_blob_explode_1: 1564533107
+      fire_blob_explode_10: 810752792
+      fire_blob_explode_2: 234021817
+      fire_blob_explode_3: -1810055160
+      fire_blob_explode_4: -175199694
+      fire_blob_explode_5: -1659167528
+      fire_blob_explode_6: -345707381
+      fire_blob_explode_7: 1551517686
+      fire_blob_explode_8: -1760833152
+      fire_blob_explode_9: 589679233
+      fire_blob_idle_0: -445923558
+      fire_blob_idle_1: 225705296
+      fire_blob_idle_2: -1043201762
+      fire_blob_idle_3: 976634166
+      fire_blob_idle_4: -611185021
+      fire_blob_idle_5: -312305892
+      fire_blob_idle_6: -911029749
+      fire_blob_idle_7: -1607317487
+      fire_blob_walk_0: -443486501
+      fire_blob_walk_1: 1167836214
+      fire_blob_walk_2: 296661048
+      fire_blob_walk_3: -2065312002
+      fire_blob_walk_4: -1566173890
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
