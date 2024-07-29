@@ -36,30 +36,15 @@ public class ExampleEnemy : Enemy
         Instantiate(dropItem, transform.position, Quaternion.identity);
     }
 
-    // public override void Spawn()
-    // {
-    //     Debug.Log("ANIMATION");
-
-    //     // Turn off sprite of enemy
-    //     sprite.gameObject.SetActive(false);
-
-    //     // Turn on spawn sprite
-    //     spawnSprite.gameObject.SetActive(true);
-
-    //     // Play animation
-    //     Animator ani = spawnSprite.GetComponent<Animator>();
-    //     ani.Play("SpawningAnimation");
-
-    //     sprite.gameObject.SetActive(true);
-    //     spawnSprite.gameObject.SetActive(false);
-    // }
-
     public override void Spawn()
     {
-        StartCoroutine(PlaySpawnAnimation());
+        StartCoroutine(PlaySpawnAnimation(() =>
+        {
+            base.Spawn();
+        }));
     }
 
-    private IEnumerator PlaySpawnAnimation()
+    private IEnumerator PlaySpawnAnimation(Action onComplete)
     {
         Debug.Log("ANIMATION");
 
@@ -79,18 +64,10 @@ public class ExampleEnemy : Enemy
         yield return new WaitForSeconds(ani.GetCurrentAnimatorStateInfo(0).length);
 
         // Switch back to original sprite
-        curState = State.Idle;
         sprite.SetActive(true);
         spawnSprite.SetActive(false);
-    }
 
-    //NOTE: Probably remove the oncollision death mechanic later but leaving it in for now
-    // void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if (collision.gameObject.tag == "Player")
-    //     {
-    //         Debug.LogFormat("Hit Player: {0}!!!", collision.gameObject.name);
-    //         Die();
-    //     }
-    // }
+        // Call the callback
+        onComplete?.Invoke();
+    }
 }

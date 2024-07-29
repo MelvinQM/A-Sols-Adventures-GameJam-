@@ -39,4 +39,9 @@ public class Player : Character
         // Shake camera when player is hit
         cameraUtils.ShakeCamera();
     }
+
+    public override void Spawn()
+    {
+        // Do something
+    }
 }

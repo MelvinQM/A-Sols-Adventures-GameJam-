@@ -51,8 +51,5 @@ public abstract class Character : MonoBehaviour, IDamagable
         onHeal?.Invoke();
     }
 
-    public virtual void Spawn()
-    {
-        
-    }
+    public abstract void Spawn();
 }
