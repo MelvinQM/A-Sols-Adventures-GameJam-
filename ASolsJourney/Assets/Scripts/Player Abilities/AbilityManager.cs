@@ -9,6 +9,10 @@ public class AbilityStatus
 {
     public Ability ability;
     public bool isUnlocked;
+    public float cooldownTimer;
+    public float activeTimer;
+    public bool isCooldownUIActive;
+
 }
 public class AbilityManager : MonoBehaviour
 {
@@ -18,8 +22,6 @@ public class AbilityManager : MonoBehaviour
     // public UnityEvent OnAbilitiesUpdated = new UnityEvent();
     // public UnityEvent OnAbilitiesUsed = new UnityEvent();
 
-    private float activeTimer;
-    private float cooldownTimer;
     public List<AbilityStatus> GetAbilities()
     {
         return unlockedAbilities;
@@ -36,26 +38,30 @@ public class AbilityManager : MonoBehaviour
                     {
                         status.ability.Activate(gameObject);
                         status.ability.state = Ability.AbilityState.Active;
-                        activeTimer = status.ability.activeTime;
+                        status.activeTimer = status.ability.activeTime;
                     }
                 break;
                 case Ability.AbilityState.Active: 
-                    if(activeTimer > 0) {
-                        activeTimer -= Time.deltaTime;
+                    if(status.activeTimer > 0) {
+                        status.activeTimer -= Time.deltaTime;
                     }
                     else {
                         status.ability.state = Ability.AbilityState.Cooldown;
-                        cooldownTimer = status.ability.cooldownTime;
+                        status.cooldownTimer = status.ability.cooldownTime;
                     }
                 break;
                 case Ability.AbilityState.Cooldown: 
-                    if(cooldownTimer > 0) {
+                    if(status.cooldownTimer > 0) {
                         //OnAbilitiesUpdated.Invoke();
-                        cooldownTimer -= Time.deltaTime;
-                        ui.StartCooldown(status.ability.abilityName, status.ability.cooldownTime); //Is this ok being here performance wise?????
+                        status.cooldownTimer -= Time.deltaTime;
+                        if (!status.isCooldownUIActive) {
+                            ui.StartCooldown(status.ability.abilityName, status.ability.cooldownTime);
+                            status.isCooldownUIActive = true;
+                        }
                     }
                     else {
                         status.ability.state = Ability.AbilityState.Ready;
+                        status.isCooldownUIActive = false;
                     }
                 break;
             }
