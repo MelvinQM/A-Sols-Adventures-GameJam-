@@ -98,6 +98,8 @@ public abstract class Enemy : Character
 
     public override void Die ()
     {
+        base.Die();
+        
         DropItems();
         Destroy(gameObject);
     }

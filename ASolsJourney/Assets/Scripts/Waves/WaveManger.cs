@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class WaveManger : MonoBehaviour
 {
@@ -38,6 +39,32 @@ public class WaveManger : MonoBehaviour
         {
             Enemy enemy = Instantiate(enemyData.enemyPrefab, enemyContainer).GetComponent<Enemy>();
             enemy.transform.position = enemyData.spawnPosition;
+            enemy.Spawn();
+
+            enemy.OnDeath += OnEnemyKilled;
+        }
+        currentEnemyCount = waves[currentWave - 1].enemies.Length;
+    }
+
+    private void OnEnemyKilled(Character entity)
+    {
+        entity.OnDeath -= OnEnemyKilled;
+
+
+        currentEnemyCount--;
+        Debug.Log("Enemy Killed " + currentEnemyCount);
+        if (currentEnemyCount == 0) { EndWave(); }
+    }
+
+    private void EndWave()
+    {
+        if (currentWave < waves.Length)
+        {
+            StartWave(currentWave + 1);
+        }
+        else
+        {
+            Debug.Log("All waves completed!");
         }
     }
 }

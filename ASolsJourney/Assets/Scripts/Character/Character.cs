@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,11 +23,12 @@ public abstract class Character : MonoBehaviour, IDamagable
 
     public event UnityAction onTakeDamage;
     public event UnityAction onHeal;
+    public event Action<Character> OnDeath;
 
     // Virtual function to edit in children of this class
     public virtual void Die()
     {
-        Destroy(gameObject);
+        OnDeath?.Invoke(this);
     }
 
     public Team GetTeam()

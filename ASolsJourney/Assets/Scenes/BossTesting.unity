@@ -427,6 +427,7 @@ MonoBehaviour:
   waveAnnouncer: {fileID: 2077446519}
   waves:
   - {fileID: 11400000, guid: a0a4972a0d7ab1641bb1cfb09e692e76, type: 2}
+  - {fileID: 11400000, guid: 305aa758e74ed1d4b9b9a1a94fdb37bc, type: 2}
   enemyContainer: {fileID: 1500298326}
 --- !u!4 &284024788
 Transform:
