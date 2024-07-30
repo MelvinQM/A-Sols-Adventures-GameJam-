@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,11 @@ public class Player : Character
     [SerializeField] private PlayerController playerController;
     [SerializeField] private GameController gc;
     [SerializeField] private CameraUtilities cameraUtils;
+
+    private bool useFloatAnimation = true;
+    [SerializeField] private Transform bodySprite;
+    private float floatHight = 0.1f;
+    private float floatSpeed = 0.7f;
     void Start()
     {
         //GameObject gameControllerObj = GameObject.FindGameObjectWithTag("GameController");
@@ -24,6 +30,11 @@ public class Player : Character
         healthBar.SetHealth(CurHp);
 
         ExampleItem.OnExampleItemPickedUp += ExamplePickup;
+
+        if (useFloatAnimation)
+        {
+            bodySprite.DOLocalMoveY(floatHight, floatSpeed).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+        }
     }
 
     void ExamplePickup()
@@ -61,5 +72,10 @@ public class Player : Character
     public override void Spawn()
     {
         // Do something
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.Kill(bodySprite);
     }
 }
