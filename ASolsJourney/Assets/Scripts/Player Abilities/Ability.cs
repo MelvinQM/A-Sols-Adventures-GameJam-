@@ -34,6 +34,16 @@ public abstract class Ability : ScriptableObject
         
     }
 
+    public virtual void AbilityUpdate()
+    {
+
+    }
+
+    public virtual void BeginCoolDown(GameObject parent)
+    {
+        
+    }
+
     // void Update() {
     //     if(!isUnlocked) return;
 

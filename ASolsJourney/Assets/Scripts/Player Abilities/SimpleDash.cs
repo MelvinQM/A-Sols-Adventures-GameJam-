@@ -12,22 +12,22 @@ public class SimpleDash : Ability
     private PlayerController _controller;
     private Rigidbody2D _rb;
 
+
     public override void Activate(GameObject parent)
     {
-        if (_controller == null)
-        {
-            _controller = parent.GetComponent<PlayerController>();
-        }
+        _controller.isBeingMoved = true;
+        if (_controller == null) _controller = parent.GetComponent<PlayerController>();
+        if (_rb == null) _rb = parent.GetComponent<Rigidbody2D>();
+        if(_controller.moveInput == Vector2.zero) return;
 
-        if (_rb == null)
-        {
-            _rb = parent.GetComponent<Rigidbody2D>();
-        }
-
-        if (_controller != null && _rb != null)
-        {
-            // Dash function is called from player controller to avoid Coroutine issues
-            _controller.StartDash(dashVelocity, activeTime);
-        }
+        Vector2 dashDirection = _controller.moveInput.normalized;
+        _rb.velocity = dashDirection * dashVelocity;
+        _controller.dust.Play();
     }
+
+    public override void BeginCoolDown(GameObject parent)
+    {
+        _controller.isBeingMoved = false;
+    }
+
 }

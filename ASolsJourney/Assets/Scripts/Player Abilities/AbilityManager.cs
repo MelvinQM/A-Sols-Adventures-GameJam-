@@ -20,6 +20,7 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private List<AbilityStatus> unlockedAbilities;
     [SerializeField] private Transform abilityHolder;
     [SerializeField] private AbilityBar ui;
+    public Shooting shootingRef;
 
     public List<AbilityStatus> GetAbilities()
     {
@@ -50,6 +51,7 @@ public class AbilityManager : MonoBehaviour
                 break;
                 case Ability.AbilityState.Active: 
                     if(status.activeTimer > 0) {
+                        status.ability.AbilityUpdate();
                         status.activeTimer -= Time.deltaTime;
                         if (!status.isUIActive) 
                         {
@@ -58,6 +60,7 @@ public class AbilityManager : MonoBehaviour
                         }
                     }
                     else {
+                        status.ability.BeginCoolDown(gameObject); //Deactivation of ability
                         status.ability.state = Ability.AbilityState.Cooldown;
                         status.cooldownTimer = status.ability.cooldownTime;
                         status.isUIActive = false;
