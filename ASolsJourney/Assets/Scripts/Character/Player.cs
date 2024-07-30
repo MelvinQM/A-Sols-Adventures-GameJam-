@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Player : Character
 {
+    [Header("Player Components")]
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private PlayerController playerController;
-    private GameController gc;
+    [SerializeField] private GameController gc;
     [SerializeField] private CameraUtilities cameraUtils;
     void Start()
     {
-        GameObject gameControllerObj = GameObject.FindGameObjectWithTag("GameController");
-        if (gc == null)
-        {
-            Debug.LogError("No GameController found");
-        } else
-        {
-            gc = gameControllerObj.GetComponent<GameController>();
-        }
+        //GameObject gameControllerObj = GameObject.FindGameObjectWithTag("GameController");
+        // if (gc == null)
+        // {
+        //     Debug.LogError("No GameController found");
+        // } else
+        // {
+        //     gc = gameControllerObj.GetComponent<GameController>();
+        // }
         
         healthBar.SetMaxHealth(MaxHp);
         healthBar.SetHealth(CurHp);

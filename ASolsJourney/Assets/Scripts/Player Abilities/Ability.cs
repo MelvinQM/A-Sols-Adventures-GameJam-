@@ -18,6 +18,13 @@ public abstract class Ability : ScriptableObject
     }
     public AbilityState state = AbilityState.Ready;
 
+    public enum AbilityType {
+            Default,
+            Alchemical,
+    }
+
+    public AbilityType type;
+
     public virtual void Activate(GameObject parent)
     {
         
