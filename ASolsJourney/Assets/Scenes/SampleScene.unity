@@ -699,7 +699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &288000463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15322,7 +15322,7 @@ Transform:
   m_GameObject: {fileID: 1548379593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1, y: 0, z: 0}
+  m_LocalPosition: {x: 1.11, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15951,6 +15951,7 @@ Transform:
   - {fileID: 1505506194}
   - {fileID: 1405376659}
   - {fileID: 536427750}
+  - {fileID: 1916879214}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1838101916
@@ -16234,11 +16235,12 @@ MonoBehaviour:
     cooldownTimer: 0
     activeTimer: 0
     isUIActive: 0
-  - ability: {fileID: 11400000, guid: b22f8691c61299d47babdae83f975e05, type: 2}
+  - ability: {fileID: 11400000, guid: 52a9b319463e26243a0236da18c77dbd, type: 2}
     isUnlocked: 1
     cooldownTimer: 0
     activeTimer: 0
     isUIActive: 0
+  abilityHolder: {fileID: 1916879214}
   ui: {fileID: 1812067331}
 --- !u!114 &1838101926
 MonoBehaviour:
@@ -16256,6 +16258,37 @@ MonoBehaviour:
   addButton: 9
   deleteButton: 27
   testAbility: {fileID: 11400000, guid: 8a0bf459d33934b42b94d53c0cfaf7a8, type: 2}
+--- !u!1 &1916879213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1916879214}
+  m_Layer: 0
+  m_Name: Abilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1916879214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916879213}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1838101914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2028823313
 GameObject:
   m_ObjectHideFlags: 0

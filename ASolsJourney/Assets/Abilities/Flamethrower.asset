@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfbbb76ed77173a45bfd2685bdeccf0a, type: 3}
-  m_Name: FakeAbility
+  m_Script: {fileID: 11500000, guid: 85fd9731c7ae1db45bf572646e7b1b96, type: 3}
+  m_Name: Flamethrower
   m_EditorClassIdentifier: 
-  abilityName: 
-  cooldownTime: 0.5
-  activeTime: 0.5
-  key: 273
+  abilityName: Flamethrower
+  cooldownTime: 2
+  activeTime: 2
+  key: 101
   icon: {fileID: 1268625123, guid: 29be1c2d3e2776542a66e7252fdc6297, type: 3}
   state: 0
   type: 1
-  dashVelocity: 0
+  prefab: {fileID: 0}

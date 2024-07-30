@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public abstract class Ability : ScriptableObject
@@ -24,6 +25,8 @@ public abstract class Ability : ScriptableObject
     }
 
     public AbilityType type;
+
+    public GameObject prefab; 
 
     public virtual void Activate(GameObject parent)
     {

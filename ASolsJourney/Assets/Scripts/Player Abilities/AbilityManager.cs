@@ -18,11 +18,20 @@ public class AbilityStatus
 public class AbilityManager : MonoBehaviour
 {
     [SerializeField] private List<AbilityStatus> unlockedAbilities;
+    [SerializeField] private Transform abilityHolder;
     [SerializeField] private AbilityBar ui;
 
     public List<AbilityStatus> GetAbilities()
     {
         return unlockedAbilities;
+    }
+
+    void Start()
+    {
+        foreach(AbilityStatus status in unlockedAbilities) {
+            // Instantiate all ability prefabs
+            if(status.ability.prefab) Instantiate(status.ability.prefab, abilityHolder);
+        }
     }
 
     void Update() {
@@ -76,6 +85,9 @@ public class AbilityManager : MonoBehaviour
         if (!unlockedAbilities.Exists(a => a.ability == ability))
         {
             unlockedAbilities.Add(new AbilityStatus { ability = ability, isUnlocked = isUnlocked });
+            
+            // Instantiate object
+            if(ability.prefab) Instantiate(ability.prefab, abilityHolder);
         } else {
             AbilityStatus abilityStatus = unlockedAbilities.Find(a => a.ability == ability);
             if (abilityStatus != null)
