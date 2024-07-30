@@ -44,6 +44,7 @@ public class AbilityManager : MonoBehaviour
                 case Ability.AbilityState.Ready: 
                     if(Input.GetKeyDown(status.ability.key)) 
                     {
+                        Debug.Log("Ability Used: " + status.ability.abilityName);
                         status.ability.Activate(gameObject);
                         status.ability.state = Ability.AbilityState.Active;
                         status.activeTimer = status.ability.activeTime;

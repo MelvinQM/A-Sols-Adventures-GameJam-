@@ -16,9 +16,30 @@ public class SimpleDash : Ability
     public override void Activate(GameObject parent)
     {
         _controller.isBeingMoved = true;
-        if (_controller == null) _controller = parent.GetComponent<PlayerController>();
-        if (_rb == null) _rb = parent.GetComponent<Rigidbody2D>();
-        if(_controller.moveInput == Vector2.zero) return;
+        // Check if the _controller is null
+        if (_controller == null)
+        {
+            _controller = parent.GetComponent<PlayerController>();
+            Debug.Log("Controller was null, now assigned: " + _controller);
+        }
+
+        // Check if the _rb (Rigidbody2D) is null
+        if (_rb == null)
+        {
+            _rb = parent.GetComponent<Rigidbody2D>();
+            Debug.Log("Rigidbody2D was null, now assigned: " + _rb);
+        }
+        else
+        {
+            Debug.Log("Rigidbody2D already assigned: " + _rb);
+        }
+
+        // Check if moveInput is zero
+        if (_controller.moveInput == Vector2.zero)
+        {
+            Debug.Log("MoveInput is zero. Exiting update.");
+            return;
+        }
 
         Vector2 dashDirection = _controller.moveInput.normalized;
         _rb.velocity = dashDirection * dashVelocity;

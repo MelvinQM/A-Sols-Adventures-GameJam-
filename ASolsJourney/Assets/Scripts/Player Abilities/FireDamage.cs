@@ -5,37 +5,39 @@ using UnityEngine;
 public class FireDamage : MonoBehaviour
 {
     public int damage = 10;
-    public float damageCooldown = 0.2f;
+    public float damageCooldown = 1;
 
     private Dictionary<GameObject, float> lastDamageTime = new Dictionary<GameObject, float>();
-    //Transform parentTransform;
-    //public ParticleSystem fire;
-    //private ParticleSystem.VelocityOverLifetimeModule velocityOverLifetime;
-    // void Start()
-    // {
-    //     parentTransform = transform.parent;
-    //     if (fire == null)
-    //         fire = GetComponent<ParticleSystem>();
-    //     velocityOverLifetime = fire.velocityOverLifetime; //TODO: Try to fix idk
-    // }
+    private ParticleSystem fire;
+    private ParticleSystem.VelocityOverLifetimeModule velocityOverLifetime;
+    private readonly float velocityMultiplier = 2f; 
+    private Camera mainCam;
+    void Start()
+    {
+        if(mainCam == null)
+            mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        if (fire == null )
+            fire = GetComponent<ParticleSystem>();
+            velocityOverLifetime = fire.velocityOverLifetime;
 
-    // void Update()
-    // {
-    //     // Aim the particle system at where the parent is looking
-    //     AimParticleSystem();
-    // }
+    }
 
-    // private void AimParticleSystem()
-    // {
-    //     if (parentTransform != null && fire != null)
-    //     {
-    //         Vector3 direction = parentTransform.forward;
-    //         // Set the velocity over lifetime in the direction the parent is facing
-    //         velocityOverLifetime.x = new ParticleSystem.MinMaxCurve(direction.x);
-    //         velocityOverLifetime.y = new ParticleSystem.MinMaxCurve(direction.y);
-    //         velocityOverLifetime.z = new ParticleSystem.MinMaxCurve(direction.z);
-    //     }
-    // }
+    void Update()
+    {
+        Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 dir = mousePos - transform.position;
+        dir.Normalize();
+        Vector3 rot = transform.position - mousePos;
+        ShootInDirection(dir.x, dir.y, Mathf.Atan2(rot.y, rot.x) * Mathf.Rad2Deg);
+        
+    }
+
+    void ShootInDirection(float dirX, float dirY, float rot) {
+        //transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+
+        velocityOverLifetime.x = new ParticleSystem.MinMaxCurve(dirX * velocityMultiplier);
+        velocityOverLifetime.y = new ParticleSystem.MinMaxCurve(dirY * velocityMultiplier);
+    }
 
     private void OnParticleCollision(GameObject other)
     {
