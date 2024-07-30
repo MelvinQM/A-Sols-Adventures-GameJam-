@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,18 +10,15 @@ public class AbilityStatus
 {
     public Ability ability;
     public bool isUnlocked;
-    public float cooldownTimer;
-    public float activeTimer;
-    public bool isCooldownUIActive;
+    [HideInInspector] public float cooldownTimer;
+    [HideInInspector] public float activeTimer;
+    [HideInInspector] public bool isUIActive;
 
 }
 public class AbilityManager : MonoBehaviour
 {
     [SerializeField] private List<AbilityStatus> unlockedAbilities;
     [SerializeField] private AbilityBar ui;
-
-    // public UnityEvent OnAbilitiesUpdated = new UnityEvent();
-    // public UnityEvent OnAbilitiesUsed = new UnityEvent();
 
     public List<AbilityStatus> GetAbilities()
     {
@@ -44,24 +42,29 @@ public class AbilityManager : MonoBehaviour
                 case Ability.AbilityState.Active: 
                     if(status.activeTimer > 0) {
                         status.activeTimer -= Time.deltaTime;
+                        if (!status.isUIActive) 
+                        {
+                            ui.SetIconActive(status.ability.abilityName, status.activeTimer, status.ability.type);
+                            status.isUIActive = true;
+                        }
                     }
                     else {
                         status.ability.state = Ability.AbilityState.Cooldown;
                         status.cooldownTimer = status.ability.cooldownTime;
+                        status.isUIActive = false;
                     }
                 break;
                 case Ability.AbilityState.Cooldown: 
                     if(status.cooldownTimer > 0) {
-                        //OnAbilitiesUpdated.Invoke();
                         status.cooldownTimer -= Time.deltaTime;
-                        if (!status.isCooldownUIActive) {
+                        if (!status.isUIActive && status.ability.type == Ability.AbilityType.Default) { // For now alchemical has no cooldown animation
                             ui.StartCooldown(status.ability.abilityName, status.ability.cooldownTime);
-                            status.isCooldownUIActive = true;
+                            status.isUIActive = true;
                         }
                     }
                     else {
                         status.ability.state = Ability.AbilityState.Ready;
-                        status.isCooldownUIActive = false;
+                        status.isUIActive = false;
                     }
                 break;
             }
