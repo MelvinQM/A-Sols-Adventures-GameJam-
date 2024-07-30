@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Flamethrower
   cooldownTime: 2
-  activeTime: 2
+  activeTime: 5
   key: 101
   icon: {fileID: 1268625123, guid: 29be1c2d3e2776542a66e7252fdc6297, type: 3}
   state: 0

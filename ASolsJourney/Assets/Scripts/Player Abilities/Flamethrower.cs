@@ -15,6 +15,7 @@ public class Flamethrower : Ability
         
         if(shootingScript == null) Debug.Log("NO SHOOTING SCRIPT");
         instance.transform.position = shootingScript.shootingPointTransform.position;
+        instance.transform.rotation = shootingScript.shootingPointTransform.rotation;
         instance.transform.SetParent(shootingScript.shootingPointTransform);
         
     }
