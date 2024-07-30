@@ -18,11 +18,21 @@ public class AbilityStatus
 public class AbilityManager : MonoBehaviour
 {
     [SerializeField] private List<AbilityStatus> unlockedAbilities;
+    [SerializeField] private Transform abilityHolder;
     [SerializeField] private AbilityBar ui;
+    public Shooting shootingRef;
 
     public List<AbilityStatus> GetAbilities()
     {
         return unlockedAbilities;
+    }
+
+    void Start()
+    {
+        foreach(AbilityStatus status in unlockedAbilities) {
+            // Instantiate all ability prefabs
+            if(status.ability.prefab) status.ability.instance = Instantiate(status.ability.prefab, abilityHolder);
+        }
     }
 
     void Update() {
@@ -34,6 +44,7 @@ public class AbilityManager : MonoBehaviour
                 case Ability.AbilityState.Ready: 
                     if(Input.GetKeyDown(status.ability.key)) 
                     {
+                        Debug.Log("Ability Used: " + status.ability.abilityName);
                         status.ability.Activate(gameObject);
                         status.ability.state = Ability.AbilityState.Active;
                         status.activeTimer = status.ability.activeTime;
@@ -41,6 +52,7 @@ public class AbilityManager : MonoBehaviour
                 break;
                 case Ability.AbilityState.Active: 
                     if(status.activeTimer > 0) {
+                        status.ability.AbilityUpdate();
                         status.activeTimer -= Time.deltaTime;
                         if (!status.isUIActive) 
                         {
@@ -49,6 +61,7 @@ public class AbilityManager : MonoBehaviour
                         }
                     }
                     else {
+                        status.ability.BeginCoolDown(gameObject); //Deactivation of ability
                         status.ability.state = Ability.AbilityState.Cooldown;
                         status.cooldownTimer = status.ability.cooldownTime;
                         status.isUIActive = false;
@@ -76,6 +89,9 @@ public class AbilityManager : MonoBehaviour
         if (!unlockedAbilities.Exists(a => a.ability == ability))
         {
             unlockedAbilities.Add(new AbilityStatus { ability = ability, isUnlocked = isUnlocked });
+            
+            // Instantiate object
+            if(ability.prefab) ability.instance = Instantiate(ability.prefab, abilityHolder);
         } else {
             AbilityStatus abilityStatus = unlockedAbilities.Find(a => a.ability == ability);
             if (abilityStatus != null)

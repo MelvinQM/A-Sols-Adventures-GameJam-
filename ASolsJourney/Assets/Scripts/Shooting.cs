@@ -7,14 +7,13 @@ public class Shooting : MonoBehaviour
     private Camera mainCam;
     private Vector3 mousePos;
     [SerializeField] private GameObject bullet;
-    [SerializeField] private Transform shootingPointTransform;
+    [SerializeField] public Transform shootingPointTransform;
     
     public bool canFire;
     private float timer;
 
     [SerializeField] private float timeBetweenFiring;
     [SerializeField] private Transform AttacksContainer;
-    public float offsetDistance = 1.0f;
 
     void Start()
     {

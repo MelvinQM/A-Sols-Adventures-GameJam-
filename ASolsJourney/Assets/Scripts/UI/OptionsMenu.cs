@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -31,11 +32,28 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
-    public void SetVolume(float volume)
+    public void SetMusicVolume(float volume)
     {
-        Debug.Log("Set volume to: " + volume);
-        mixer.SetFloat("Volume", volume);
+        string groupName = "MusicVolume";
+        Debug.Log($"Set {groupName} volume to: " + volume);
+        mixer.SetFloat(groupName, volume);
     }
+    public void SetGameVolume(float volume)
+    {
+        string groupName = "GameVolume";
+        Debug.Log($"Set {groupName} volume to: " + volume);
+        mixer.SetFloat(groupName, volume);
+    }
+
+    public void SetMasterVolume(float volume)
+    {
+        string groupName = "MasterVolume";
+        Debug.Log($"Set {groupName} volume to: " + volume);
+        mixer.SetFloat(groupName, volume);
+    }
+
+
+    
 
     public void SetFullscreen(bool isFullScreen)
     {
