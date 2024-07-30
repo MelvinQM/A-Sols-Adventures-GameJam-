@@ -19,4 +19,5 @@ MonoBehaviour:
   icon: {fileID: 1268625123, guid: 29be1c2d3e2776542a66e7252fdc6297, type: 3}
   state: 0
   type: 1
-  prefab: {fileID: 0}
+  prefab: {fileID: 645793586546494228, guid: ccb1d5d4dbf512644b1d431fbcd9aad7, type: 3}
+  instance: {fileID: 0}
