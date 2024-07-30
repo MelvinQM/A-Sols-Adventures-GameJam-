@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Unity.VisualScripting;
 
-public class CameraUtilities : MonoBehaviour
+public class CameraUtilities : Singleton<CameraUtilities>
 {
     private CinemachineVirtualCamera cinemachineCamera;
     private float timer;
     private CinemachineBasicMultiChannelPerlin _cbmcp;
 
-    void Awake()
+    internal override void Awake()
     {
+        base.Awake();
+        
         cinemachineCamera = GetComponent<CinemachineVirtualCamera>();
         _cbmcp = cinemachineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }

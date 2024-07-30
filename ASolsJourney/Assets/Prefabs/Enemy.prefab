@@ -536,7 +536,7 @@ MonoBehaviour:
   healthBar: {fileID: 4911085843616224801}
   spriteRenderer: {fileID: 8832504301895722742}
   damage: 5
-  attackRange: 2
+  attackRange: 1
   attackRate: 1
   dropItem: {fileID: 5811515818036128859, guid: 501b65139dd6a6ac7900a79c249ea67e, type: 3}
   sprite: {fileID: 4581011861861946042}

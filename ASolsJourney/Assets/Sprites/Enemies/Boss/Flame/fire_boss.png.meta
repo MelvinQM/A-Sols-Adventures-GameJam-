@@ -600,6 +600,300 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: fire_spirit_idle_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 154
+        width: 22
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b75519bed054f429b9e567e39f4a8f
+      internalID: -618508494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_spirit_idle_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 154
+        width: 25
+        height: 48
+      alignment: 9
+      pivot: {x: 0.48, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef0b53098da0cda4d87ee3fcfb334731
+      internalID: -179819888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_spirit_idle_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 154
+        width: 28
+        height: 51
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbb5097ce278a9244acd427b05c786d8
+      internalID: 922446166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_spirit_idle_3
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 154
+        width: 27
+        height: 55
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113f877bb7672564ca063e8b47fbcb99
+      internalID: -610736082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_spirit_idle_4
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 154
+        width: 24
+        height: 53
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8944aa4f6b0204449ae12a967364c6b
+      internalID: 1093268644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_spirit_idle_5
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 154
+        width: 23
+        height: 55
+      alignment: 9
+      pivot: {x: 0.4347826, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251cd1ef544f658478b9b7b8ecc30a51
+      internalID: 2086874522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_spirit_idle_6
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 154
+        width: 23
+        height: 57
+      alignment: 9
+      pivot: {x: 0.4347826, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ece94909866fe1498ac5a90fe47be57
+      internalID: 1033528771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_spirit_walk_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 14
+        width: 23
+        height: 46
+      alignment: 9
+      pivot: {x: 0.4347826, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b424cef45669654cacb58df58b462a6
+      internalID: 1400419552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_spirit_walk_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 14
+        width: 25
+        height: 48
+      alignment: 9
+      pivot: {x: 0.48, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4c41dea12298a4eae894f5d7fdbc35
+      internalID: 896997572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_spirit_walk_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 14
+        width: 28
+        height: 51
+      alignment: 9
+      pivot: {x: 0.4642857, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4d33e2c21512e418e5abef036dc32b
+      internalID: -445670963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_spirit_walk_3
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 14
+        width: 27
+        height: 55
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec31683d8848c1489144e84175e6059
+      internalID: 119206378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_spirit_walk_4
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 14
+        width: 24
+        height: 53
+      alignment: 9
+      pivot: {x: 0.41666666, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6661e7ba9d41254b8728b0c9a783610
+      internalID: 1942306760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_spirit_walk_5
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 14
+        width: 23
+        height: 55
+      alignment: 9
+      pivot: {x: 0.4347826, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad7a102a7c444314ea5faac9080b8692
+      internalID: 698646003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_spirit_walk_6
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 14
+        width: 23
+        height: 57
+      alignment: 9
+      pivot: {x: 0.4347826, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de22a0283b091b44a80248b7c42725dd
+      internalID: 992817748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -635,6 +929,20 @@ TextureImporter:
       fire_blob_walk_2: 296661048
       fire_blob_walk_3: -2065312002
       fire_blob_walk_4: -1566173890
+      fire_spirit_idle_0: -618508494
+      fire_spirit_idle_1: -179819888
+      fire_spirit_idle_2: 922446166
+      fire_spirit_idle_3: -610736082
+      fire_spirit_idle_4: 1093268644
+      fire_spirit_idle_5: 2086874522
+      fire_spirit_idle_6: 1033528771
+      flame_spirit_walk_0: 1400419552
+      flame_spirit_walk_1: 896997572
+      flame_spirit_walk_2: -445670963
+      flame_spirit_walk_3: 119206378
+      flame_spirit_walk_4: 1942306760
+      flame_spirit_walk_5: 698646003
+      flame_spirit_walk_6: 992817748
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
