@@ -15,6 +15,8 @@ public abstract class Enemy : Character
     [SerializeField] protected float chaseDistance;
     // [SerializeField] private float attackDistance;
 
+    [SerializeField] protected WorldHealthBar healthBar;
+
     protected GameObject target;
     protected float lastAttackTime;
     protected float targetDistance;
@@ -26,7 +28,7 @@ public abstract class Enemy : Character
         target = FindObjectOfType<Player>().gameObject;
 
         // Testiong
-        Spawn();
+        //Spawn();
     }
     
     protected virtual void Update ()
@@ -51,6 +53,8 @@ public abstract class Enemy : Character
     {
         if(curState == State.Spawn) return;
         base.TakeDamage(damageToTake);
+
+        healthBar.Damage(damageToTake);
     }
 
     // Changes our current state.

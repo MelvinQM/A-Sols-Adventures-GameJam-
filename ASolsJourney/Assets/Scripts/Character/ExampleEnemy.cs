@@ -37,6 +37,8 @@ public class ExampleEnemy : Enemy
         curState = State.Spawn;
         sprite.gameObject.SetActive(false);
 
+        healthBar.HideHealthBar(false);
+
         StartCoroutine(PlayDeathAnimation(() =>
         {
             base.Die();
