@@ -30,7 +30,7 @@ public class AbilityManager : MonoBehaviour
     {
         foreach(AbilityStatus status in unlockedAbilities) {
             // Instantiate all ability prefabs
-            if(status.ability.prefab) Instantiate(status.ability.prefab, abilityHolder);
+            if(status.ability.prefab) status.ability.instance = Instantiate(status.ability.prefab, abilityHolder);
         }
     }
 
@@ -87,7 +87,7 @@ public class AbilityManager : MonoBehaviour
             unlockedAbilities.Add(new AbilityStatus { ability = ability, isUnlocked = isUnlocked });
             
             // Instantiate object
-            if(ability.prefab) Instantiate(ability.prefab, abilityHolder);
+            if(ability.prefab) ability.instance = Instantiate(ability.prefab, abilityHolder);
         } else {
             AbilityStatus abilityStatus = unlockedAbilities.Find(a => a.ability == ability);
             if (abilityStatus != null)

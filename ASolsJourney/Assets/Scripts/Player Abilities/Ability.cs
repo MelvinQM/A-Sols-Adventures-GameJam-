@@ -27,6 +27,7 @@ public abstract class Ability : ScriptableObject
     public AbilityType type;
 
     public GameObject prefab; 
+    public GameObject instance; 
 
     public virtual void Activate(GameObject parent)
     {
