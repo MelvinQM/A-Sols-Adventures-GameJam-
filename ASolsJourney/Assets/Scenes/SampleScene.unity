@@ -812,6 +812,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &427852013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 427852014}
+  m_Layer: 0
+  m_Name: Abilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &427852014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427852013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845943857}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &479099548
 GameObject:
   m_ObjectHideFlags: 0
@@ -7822,6 +7853,37 @@ MonoBehaviour:
   spawnInterval: 3.5
   spawnRadiusMin: 5
   tilemap: {fileID: 554623151}
+--- !u!1 &816949987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816949988}
+  m_Layer: 0
+  m_Name: ShootOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &816949988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816949987}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.11, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1651832439}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &840973326
 GameObject:
   m_ObjectHideFlags: 0
@@ -11059,6 +11121,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1067331050}
+  - {fileID: 816949988}
   m_Father: {fileID: 1845943857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1651832440
@@ -11074,11 +11137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4137016262445453664, guid: 304bb5258b871594ca896c1a9d065af4, type: 3}
-  shootingPointTransform: {fileID: 2065340481}
+  shootingPointTransform: {fileID: 816949988}
   canFire: 1
   timeBetweenFiring: 0.15
   AttacksContainer: {fileID: 120275864}
-  offsetDistance: 1
 --- !u!1 &1681952806
 GameObject:
   m_ObjectHideFlags: 0
@@ -16189,7 +16251,14 @@ MonoBehaviour:
     cooldownTimer: 0
     activeTimer: 0
     isUIActive: 0
+  - ability: {fileID: 11400000, guid: 52a9b319463e26243a0236da18c77dbd, type: 2}
+    isUnlocked: 1
+    cooldownTimer: 0
+    activeTimer: 0
+    isUIActive: 0
+  abilityHolder: {fileID: 427852014}
   ui: {fileID: 1812067331}
+  shootingRef: {fileID: 0}
 --- !u!82 &1845943849
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16486,6 +16555,7 @@ Transform:
   - {fileID: 2065340481}
   - {fileID: 1651832439}
   - {fileID: 1699044488}
+  - {fileID: 427852014}
   m_Father: {fileID: 1349430648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2028823313
