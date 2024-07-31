@@ -72,7 +72,7 @@ public class WaveManger : MonoBehaviour
     {
         // DO SOMETHING
         Debug.Log("END OF GAME");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     private void EndWave()
