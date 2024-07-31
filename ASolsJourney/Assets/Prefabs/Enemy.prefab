@@ -530,7 +530,7 @@ MonoBehaviour:
   CurHp: 100
   MaxHp: 100
   audioSource: {fileID: 370080959187279425}
-  hitSFX: {fileID: 8300000, guid: 3ea5307b29f5e1a41b3d59f3df1adccb, type: 3}
+  hitSFX: {fileID: 8300000, guid: 215ac620dbe6ace4cb205d9222dddad8, type: 3}
   moveSpeed: 2
   chaseDistance: 20
   healthBar: {fileID: 4911085843616224801}
