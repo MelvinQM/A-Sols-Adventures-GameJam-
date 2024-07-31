@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +13,22 @@ public class ExampleEnemy : Enemy
     [SerializeField] private Transform sprite;
     [SerializeField] private Transform spawnSprite;
     [SerializeField] private Transform shadowSprite;
+
+    private bool useFloatAnimation = true;
+    [SerializeField] private Transform bodySprite;
+    private float floatHight = 0.1f;
+    private float floatSpeed = 0.7f;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        // Yuck, copied
+        if (useFloatAnimation)
+        {
+            bodySprite.DOLocalMoveY(floatHight, floatSpeed).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+        }
+    }
 
     protected override void AttackTarget()
     {
@@ -95,5 +112,10 @@ public class ExampleEnemy : Enemy
         Debug.Log("AAA");
 
         onComplete?.Invoke();
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.Kill(bodySprite);
     }
 }
