@@ -16,11 +16,9 @@ public class DangerCircle : MonoBehaviour
 
     private Vector3 originalScale;
 
-    private void Start()
+    private void Awake()
     {
-        spriteRenderer = this.transform.GetComponent<SpriteRenderer>();
-        Setup(20, Vector2.zero, 5);
-        ShowDanger();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void Setup(float width, Vector2 position, float lifeTime)

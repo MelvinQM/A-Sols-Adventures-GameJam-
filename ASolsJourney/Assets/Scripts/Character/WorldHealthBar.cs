@@ -17,8 +17,11 @@ public class WorldHealthBar : MonoBehaviour
     public float CurrentHealth { get { return currentHealth; }}
     private float currentHealth;
 
-    private void Start()
+    private Tweener healthBarTweener;
+
+    public void Setup(float maxHealth)
     {
+        this.maxHealth = maxHealth;
         currentHealth = maxHealth;
     }
 
@@ -37,11 +40,24 @@ public class WorldHealthBar : MonoBehaviour
     private void UpdateHealthBar()
     {
         float currentFill = bar.fillAmount;
+        if (healthBarTweener != null)
+        {
+            DOTween.Kill(healthBarTweener);
+        }
 
         // Use dotween to animate the health bar
-        DOTween.To(() => currentFill, x => currentFill = x, currentHealth / maxHealth, 0.2f).OnUpdate(() =>
+        healthBarTweener = DOTween.To(() => currentFill, x => currentFill = x, currentHealth / maxHealth, 0.2f).OnUpdate(() =>
         {
             bar.fillAmount = currentFill;
         });
+    }
+
+    private void OnDestroy()
+    {
+        // Stop all tweens when the object is destroyed
+        if (healthBarTweener != null && healthBarTweener.IsActive())
+        {
+            DOTween.Kill(healthBarTweener);
+        }
     }
 }

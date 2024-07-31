@@ -26,7 +26,7 @@ public abstract class Enemy : Character
     protected virtual void Start ()
     {
         target = FindObjectOfType<Player>().gameObject;
-
+        healthBar.Setup(MaxHp);
         // Testiong
         //Spawn();
     }

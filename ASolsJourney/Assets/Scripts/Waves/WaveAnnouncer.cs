@@ -20,6 +20,8 @@ public class WaveAnnouncer : MonoBehaviour
 
     public void AnnounceWave(int waveNumber)
     {
+        Debug.Log("Announce Wave: " + waveNumber);
+
         // Set correct text
         waveLabel.text = "Trial " + waveNumber;
 
@@ -27,9 +29,12 @@ public class WaveAnnouncer : MonoBehaviour
         overlay.DOFade(0, 0);
         waveLabel.DOFade(0, 0);
 
+        Debug.Log("AH");
         overlay.gameObject.SetActive(true);
         overlay.DOFade(overlayAlpha, overlayFadeDuration)
             .OnComplete(()=> {
+                Debug.Log("A1111H");
+                
                 waveLabel.gameObject.SetActive(true);
                 waveLabel.DOFade(1, labelFadeDuration)
                 .OnComplete(()=> { 
