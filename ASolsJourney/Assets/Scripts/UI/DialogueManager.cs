@@ -72,6 +72,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
+        Debug.Log("Fading out Intro screen");
         Color originalColor = imageToFade.color;
         float fadeSpeed = 1f / timeToFade;
 
@@ -82,10 +83,7 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
 
-        // Ensure the image is fully opaque
         imageToFade.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1);
-
-        // Load the next scene in the build index
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

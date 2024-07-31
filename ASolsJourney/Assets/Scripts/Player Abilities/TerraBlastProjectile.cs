@@ -11,7 +11,6 @@ public class TerraBlastProjectile : MonoBehaviour
     [SerializeField] private float bulletSpeed;
     [SerializeField] private int damage;
     [SerializeField] private int lifetime;
-    Animator ani;
 
     public void Boom(float dirX, float dirY, float rot)
     {

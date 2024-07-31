@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &25994293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1257604333}
-  timeBetweenChars: 0.005
+  timeBetweenChars: 0.01
   imageToFade: {fileID: 25994294}
   timeToFade: 2
 --- !u!4 &741030660
