@@ -15,7 +15,6 @@ public class SimpleDash : Ability
 
     public override void Activate(GameObject parent)
     {
-        _controller.isBeingMoved = true;
         // Check if the _controller is null
         if (_controller == null)
         {
@@ -41,6 +40,7 @@ public class SimpleDash : Ability
             return;
         }
 
+        _controller.isBeingMoved = true;
         Vector2 dashDirection = _controller.moveInput.normalized;
         _rb.velocity = dashDirection * dashVelocity;
         _controller.dust.Play();
@@ -48,6 +48,11 @@ public class SimpleDash : Ability
 
     public override void BeginCoolDown(GameObject parent)
     {
+        if (_controller == null)
+        {
+            _controller = parent.GetComponent<PlayerController>();
+            Debug.Log("Controller was null, now assigned: " + _controller);
+        }
         _controller.isBeingMoved = false;
     }
 
