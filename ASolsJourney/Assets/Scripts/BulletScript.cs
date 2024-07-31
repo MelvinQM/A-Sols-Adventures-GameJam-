@@ -9,11 +9,6 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private int lifetime;
 
-    void Start()
-    {
-
-    }
-
     public void Boom(float dirX, float dirY, float rot)
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(dirX, dirY).normalized * bulletSpeed;
@@ -32,10 +27,5 @@ public class BulletScript : MonoBehaviour
 
             Destroy(gameObject);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
