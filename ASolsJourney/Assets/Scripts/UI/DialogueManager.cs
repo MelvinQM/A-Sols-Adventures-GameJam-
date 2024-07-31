@@ -16,10 +16,10 @@ public class DialogueManager : MonoBehaviour
     string[] intro_text = {
         "...",
         "Welcome, Sol.....",
-        "You are but a flicker, a mere spark in existence. Yet within you lies potential. to weave the threads of the universe itself.",
+        "You are but a flicker, a mere spark in existence. Yet within you lies the potential to weave the threads of the universe itself.",
         "In this realm we follow the triad of Soul, Body, and Spirit. Each part is a key to a whole.",
-        "The Soul yearns for unity. The Body for form and the Spirit for purpose.",
-        "On this journey you will find many alchemical powers to help you on your quest. But...",
+        "The Soul yearns for unity. The Body represents form and the Spirit represents purpose.",
+        "On this journey you will find many alchemical powers to help. But...",
         "You will also encounter many shadowy beings. These beings live to prevent you from becoming whole.",
         "Be carefull Sol.... Good luck."
     };
