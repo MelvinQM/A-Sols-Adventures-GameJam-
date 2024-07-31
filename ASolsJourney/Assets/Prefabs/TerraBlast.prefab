@@ -186,6 +186,4 @@ MonoBehaviour:
   bulletSpeed: 5
   damage: 50
   lifetime: 5
-  spinCooldown: 0.1
-  timeBetween: 1
-  rotationSpeed: 5
+  rotationsPerMinute: 100
